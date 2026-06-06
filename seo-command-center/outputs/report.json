@@ -924,7 +924,7 @@
       {
         "url": "https://nmgtechnologies.com/agentic-ai",
         "old": "Agentic AI Consulting Services | Expert AI Development & Integration",
-        "new": "Agentic AI Consulting: Expert Development & Integration"
+        "new": "Agentic AI Consulting Services | Expert AI Development"
       },
       {
         "url": "https://nmgtechnologies.com/ai-driven-enterprise-software-development",
@@ -934,22 +934,22 @@
       {
         "url": "https://nmgtechnologies.com/ai-enhanced-web-mobile-application-development",
         "old": "AI App Development Services | Custom Artificial Intelligence Applications",
-        "new": "AI Web & Mobile App Development Services | NMG Technologies"
+        "new": "AI-Enhanced Web & Mobile App Development Services"
       },
       {
         "url": "https://nmgtechnologies.com/ai-optimized-ecommerce-solutions",
         "old": "AI-Powered Ecommerce | Advanced AI Solutions for Online Retail",
-        "new": "AI-Optimized eCommerce Solutions | Advanced AI for Retail"
+        "new": "AI-Optimized eCommerce Solutions | Advanced Online Retail AI"
       },
       {
         "url": "https://nmgtechnologies.com/ai-powered-business-process-transformation",
         "old": "AI Powered Service | Innovative AI-Driven Solutions for Business",
-        "new": "AI-Powered Business Process Transformation | NMG Technology"
+        "new": "AI Business Process Transformation | NMG Technologies"
       },
       {
         "url": "https://nmgtechnologies.com/blog/advantages-of-asp-net-core",
         "old": ".NET Core: 20 Advantages of Building Your Software in ASP.NET Core |",
-        "new": "20 Key Advantages of Building Software with ASP.NET Core"
+        "new": "20 Advantages of Building Software with ASP.NET Core"
       },
       {
         "url": "https://nmgtechnologies.com/blog/best-practices-offshore-software-development",
@@ -969,17 +969,17 @@
       {
         "url": "https://nmgtechnologies.com/",
         "old": "NMG Technologies is a leading IT outsourcing company with over 15+ years of experience, 1000+ projects delivered, 500+Clients and a 100+ people team in-house. Get Started Today!",
-        "new": "Scale your business with AI innovation from NMG Technologies. 15+ years of expertise, 1000+ projects delivered, and a proven track record. Get started!"
+        "new": "Accelerate growth with NMG Technologies. 15+ years of AI-driven innovation, 1000+ projects delivered, and 500+ global clients. Scale your business today!"
       },
       {
         "url": "https://nmgtechnologies.com/agentic-ai",
         "old": "Discover top Agentic AI consulting services specializing in custom AI agent development, enterprise AI solutions, and seamless integration. Hire experts to transform your business with intelligent automation. Schedule a demo today!",
-        "new": "Scale your business with Agentic AI consulting. We specialize in custom AI agents and enterprise autonomy to drive intelligent automation. Schedule a demo!"
+        "new": "Scale your business with expert Agentic AI consulting. We build custom AI agents and autonomous enterprise solutions to drive efficiency. Schedule a demo!"
       },
       {
         "url": "https://nmgtechnologies.com/ai-driven-business-transformation-consulting",
         "old": "Transform your business with AI. Our consulting services help you innovate faster, optimize operations, and scale sustainably through AI\u2011driven transformation.",
-        "new": "Accelerate growth with AI-driven business transformation. Our consulting helps you optimize operations, innovate faster, and scale sustainably. Learn more."
+        "new": "Accelerate growth with AI-driven business transformation consulting. Optimize operations, innovate faster, and scale sustainably with NMG Technologies."
       },
       {
         "url": "https://nmgtechnologies.com/ai-driven-devops-cloud-automation",
@@ -989,32 +989,32 @@
       {
         "url": "https://nmgtechnologies.com/ai-driven-enterprise-software-development",
         "old": "Accelerate innovation with enterprise AI solutions from a trusted AI development company. Customized AI software solutions empower enterprises to optimize operations and unlock new growth opportunities.",
-        "new": "Scale your business with AI-driven enterprise software development. Optimize operations and unlock growth with custom AI solutions from NMG Technologies."
+        "new": "Scale innovation with custom AI-driven enterprise software development. Optimize operations and growth with tailored solutions from NMG Technologies."
       },
       {
         "url": "https://nmgtechnologies.com/ai-enhanced-web-mobile-application-development",
         "old": "Transform your business with AI app development services. We create advanced AI applications that drive automation, improve decision-making, and deliver personalized user experiences.",
-        "new": "Scale your business with AI-enhanced web and mobile app development. We build intelligent solutions for automation, better insights, and personalized UX."
+        "new": "Boost efficiency with AI-enhanced web & mobile app development. We build AI solutions for automation, smarter decisions, and personalized experiences."
       },
       {
         "url": "https://nmgtechnologies.com/ai-machine-learning-solutions",
         "old": "Transform your enterprise with AI and machine learning solutions. Expert services designed to integrate intelligent automation and data-driven insights for sustainable success.",
-        "new": "Scale your enterprise with expert AI and machine learning solutions. Drive sustainable growth through intelligent automation and data-driven insights."
+        "new": "Scale your business with expert AI and machine learning solutions. Drive growth through intelligent automation, predictive analytics, and data-driven insig"
       },
       {
         "url": "https://nmgtechnologies.com/ai-optimized-ecommerce-solutions",
         "old": "Transform your ecommerce business with AI-powered solutions. Enhance customer experience, automate processes, and increase sales through intelligent ecommerce optimization.",
-        "new": "Scale your online store with AI-optimized eCommerce solutions. Boost sales, automate processes, and enhance customer experiences with intelligent optimizat"
+        "new": "Scale your business with AI-optimized eCommerce solutions. Enhance customer experience, automate operations, and boost sales with intelligent optimization."
       },
       {
         "url": "https://nmgtechnologies.com/ai-powered-business-process-transformation",
         "old": "Drive digital innovation with our AI powered service. We provide AI-driven business solutions designed to optimize performance, enhance efficiency, and accelerate growth.",
-        "new": "Accelerate growth and optimize performance with AI-powered business process transformation. Drive efficiency and digital innovation with NMG Technologies."
+        "new": "Accelerate growth and optimize performance with AI-powered business process transformation. Drive efficiency through our innovative AI-driven business solu"
       },
       {
         "url": "https://nmgtechnologies.com/ai-powered-saas-development",
         "old": "Create and launch AI-powered SaaS applications with our AI SaaS builder platform. Deliver innovative SaaS products and AI-driven software solutions that scale with your business needs.",
-        "new": "Build scalable AI-powered SaaS applications with our expert development services. Launch innovative, AI-driven software solutions tailored to your business"
+        "new": "Build scalable AI-powered SaaS apps with our expert development services. Launch innovative, AI-driven software solutions tailored to your business."
       }
     ],
     "redirect_map": [
@@ -1055,6 +1055,6 @@
   "run_meta": {
     "model": "qwen3.5:9b",
     "model_calls": 0,
-    "duration_sec": 35.8
+    "duration_sec": 57.2
   }
 }
