@@ -121,6 +121,34 @@ def detect(rows: list[dict]) -> list[dict]:
         [r["Address"] for r in rows if 300 <= _int(r.get("Status Code")) <= 399],
         "URLs that redirect (3xx).")
 
+    # --- Redirect Chains ---
+    redirect_map = {r["Address"]: r.get("Redirect URL", "")
+                    for r in rows if 300 <= _int(r.get("Status Code")) <= 399}
+
+    chain_members = set()
+    for start_node in redirect_map:
+        path = []
+        curr = start_node
+        while curr in redirect_map and curr not in path:
+            path.append(curr)
+            curr = redirect_map[curr]
+
+        # Handle loop: if curr is in path, the cycle is part of the chain
+        if curr in path:
+            # All nodes in the path are part of the cycle or lead to it
+            if len(path) > 1:
+                chain_members.update(path)
+            elif len(path) == 1 and redirect_map[path[0]] == path[0]:
+                # Single node loop A -> A is a chain of length 1?
+                # Rulebook: "a redirect whose Redirect URL is itself a redirecting URL"
+                # A -> A fits this. Let's consider it a chain.
+                chain_members.update(path)
+        elif len(path) > 1:
+            # Standard chain A -> B -> ... -> Final
+            chain_members.update(path)
+
+    add("redirect_chain", "High", list(chain_members), "URLs participating in a redirect chain (length > 1).")
+
     # --- Orphan pages ---
     add("orphan_page", "Medium",
         [r["Address"] for r in idx200 if _int(r.get("Inlinks")) == 0],
