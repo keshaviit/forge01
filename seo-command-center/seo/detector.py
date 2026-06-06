@@ -126,6 +126,18 @@ def detect(rows: list[dict]) -> list[dict]:
         [r["Address"] for r in idx200 if _int(r.get("Inlinks")) == 0],
         "Indexable pages with zero internal links in.")
 
+    add("thin_content", "Low",
+        [r["Address"] for r in rows if indexable(r) and _int(r.get("Word Count")) < 200],
+        "Indexable pages with low word count (< 200).")
+
+    add("slow_page", "Low",
+        [r["Address"] for r in rows if _float(r.get("Response Time")) > 1.0],
+        "Pages with high response time (> 1.0s).")
+
+    add("non_indexable_but_linked", "Medium",
+        [r["Address"] for r in rows if (r.get("Indexability", "") or "").strip().lower() == "non-indexable" and _int(r.get("Inlinks")) > 0],
+        "Non-indexable pages that are still linked internally.")
+
     # ----------------------------------------------------------------------- #
     # TODO (Sprint): add the rest of the rulebook for full accuracy:
     #   title_too_short, missing_meta_description, duplicate_meta_description,
