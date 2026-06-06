@@ -73,6 +73,11 @@ def detect(rows: list[dict]) -> list[dict]:
          if _int(r.get("Title 1 Pixel Width")) > 561 or _int(r.get("Title 1 Length")) > 60],
         "Titles likely truncated in search results.")
 
+    add("title_too_short", "Low",
+        [r["Address"] for r in idx200
+         if 0 < _int(r.get("Title 1 Length")) < 30],
+        "Titles that are likely too short for optimal SEO.")
+
     # --- Meta Descriptions ---
     add("missing_meta_description", "Medium",
         [r["Address"] for r in idx200 if not (r.get("Meta Description 1", "") or "").strip()],
@@ -90,6 +95,20 @@ def detect(rows: list[dict]) -> list[dict]:
     add("meta_description_too_long", "Low",
         [r["Address"] for r in idx200 if _int(r.get("Meta Description 1 Length")) > 155],
         "Meta descriptions likely truncated in search results.")
+
+    # --- H1s ---
+    add("missing_h1", "Medium",
+        [r["Address"] for r in html if is_200(r) and not (r.get("H1-1", "") or "").strip()],
+        "Pages with no H1 tag.")
+
+    # duplicate h1s (indexable only)
+    by_h1 = defaultdict(list)
+    for r in idx200:
+        h = (r.get("H1-1", "") or "").strip()
+        if h:
+            by_h1[h].append(r["Address"])
+    dup_h1 = [u for urls in by_h1.values() if len(urls) > 1 for u in urls]
+    add("duplicate_h1", "Low", dup_h1, "Pages sharing an identical H1.")
 
     # --- Response codes ---
     add("broken_link", "High",
