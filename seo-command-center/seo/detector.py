@@ -54,6 +54,8 @@ def detect(rows: list[dict]) -> list[dict]:
     html = [r for r in rows if is_html(r)]
     idx200 = [r for r in html if is_200(r) and indexable(r)]
 
+    status_map = {r["Address"]: _int(r.get("Status Code")) for r in rows}
+
     # --- Titles ---
     add("missing_title", "High",
         [r["Address"] for r in idx200 if not (r.get("Title 1", "") or "").strip()],
@@ -165,6 +167,30 @@ def detect(rows: list[dict]) -> list[dict]:
     add("non_indexable_but_linked", "Medium",
         [r["Address"] for r in rows if (r.get("Indexability", "") or "").strip().lower() == "non-indexable" and _int(r.get("Inlinks")) > 0],
         "Non-indexable pages that are still linked internally.")
+
+    # --- Canonicals & Depth ---
+    def norm(u):
+        return (u or "").strip().rstrip("/")
+
+    add("missing_canonical", "Medium",
+        [r["Address"] for r in idx200 if not (r.get("Canonical URL", "") or "").strip()],
+        "Indexable pages missing a canonical tag.")
+
+    add("canonical_mismatch", "Medium",
+        [r["Address"] for r in idx200 if (can := (r.get("Canonical URL", "") or "").strip()) and norm(can) != norm(r["Address"])],
+        "Canonical URL does not match the page address.")
+
+    add("canonical_to_redirect", "High",
+        [r["Address"] for r in idx200 if (can := (r.get("Canonical URL", "") or "").strip()) and 300 <= status_map.get(can, 0) <= 399],
+        "Canonical URL points to a redirect.")
+
+    add("canonical_to_broken_page", "High",
+        [r["Address"] for r in idx200 if (can := (r.get("Canonical URL", "") or "").strip()) and status_map.get(can, 0) >= 400],
+        "Canonical URL points to a broken page (4xx/5xx).")
+
+    add("deep_page", "Medium",
+        [r["Address"] for r in idx200 if _int(r.get("Crawl Depth")) > 5],
+        "Pages buried deeper than 5 clicks from home.")
 
     # ----------------------------------------------------------------------- #
     # TODO (Sprint): add the rest of the rulebook for full accuracy:
