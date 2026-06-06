@@ -36,6 +36,11 @@ def main():
     server.seo_load(args.export_dir)
     res = server.seo_detect()
 
+    # Fixer: generate model-driven rewrites and redirect suggestions
+    from seo import fixer
+    fixes = fixer.run_fixer_pipeline(server.RUN["rows"], server.RUN["issues"])
+    server.seo_set_fixes(fixes["titles"], fixes["redirect_map"])
+
     # starter recommendations from the detected issues (the skill writes richer ones)
     issues = sorted(server.RUN["issues"], key=lambda x: {"High":0,"Medium":1,"Low":2}.get(x["severity"],3))
     recs = []
